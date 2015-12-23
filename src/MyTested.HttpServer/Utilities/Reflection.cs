@@ -59,14 +59,5 @@
 
             return string.Format("{0}<{1}>", friendlyGenericName, joinedGenericArgumentNames);
         }
-        
-
-        private static bool ObjectImplementsIComparable(object obj)
-        {
-            return obj.GetType()
-                .GetTypeInfo()
-                .ImplementedInterfaces
-                .FirstOrDefault(i => i.Name.StartsWith("IComparable")) != null;
-        }
     }
 }
