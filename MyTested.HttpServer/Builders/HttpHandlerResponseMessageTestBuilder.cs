@@ -2,6 +2,7 @@
 {
     using Common;
     using Contracts;
+    using Exceptions;
     using System;
     using System.Collections.Generic;
     using System.Net;
@@ -278,15 +279,6 @@
                     propertyName,
                     expectedValue,
                     actualValue));
-        }
-
-        private ResponseModelAssertionException ThrowNewResponseModelAssertionException(string expectedResponseModel, string actualResponseModel)
-        {
-            return new ResponseModelAssertionException(string.Format(
-                    "When testing {0} expected HTTP response message model to {1}, but {2}.",
-                    this.Handler.GetName(),
-                    expectedResponseModel,
-                    actualResponseModel));
         }
     }
 }

@@ -8,7 +8,9 @@
 
   "dependencies": {
     "StyleCop.Analyzers": "1.0.0-rc2",
-    "System.Net.Http": "4.0.0"
+    "System.Net.Http": "4.0.0",
+    "System.Linq": "4.0.1-beta-23516",
+    "System.Linq.Expressions": "4.0.11-beta-23516"
   },
 
   "frameworks": {
