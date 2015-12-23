@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MyTested.HttpServer", "MyTested.HttpServer\MyTested.HttpServer.xproj", "{EB372A17-1FBE-4BCC-BF7F-A084C3D22863}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{4488DF4E-3A0E-49B3-8DC8-31EA629E1EAC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{449FF2AF-907D-4487-9BAA-BEB0F7B6E4E6}"
@@ -14,7 +12,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{4552FF83-274C-4166-B6D3-BE37979EF42F}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MyTested.HttpServer.Tests", "MyTested.HttpServer.Tests\MyTested.HttpServer.Tests.xproj", "{A57EE531-B2B6-45EE-9516-C785D848C3DD}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MyTested.HttpServer", "src\MyTested.HttpServer\MyTested.HttpServer.xproj", "{EB372A17-1FBE-4BCC-BF7F-A084C3D22863}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MyTested.HttpServer.Tests", "test\MyTested.HttpServer.Tests\MyTested.HttpServer.Tests.xproj", "{A57EE531-B2B6-45EE-9516-C785D848C3DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

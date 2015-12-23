@@ -4285,7 +4285,7 @@
   "libraries": {
     "MyTested.HttpServer/0.1.0": {
       "type": "project",
-      "path": "../MyTested.HttpServer/project.json"
+      "path": "../../src/MyTested.HttpServer/project.json"
     },
     "Microsoft.Dnx.Compilation.Abstractions/1.0.0-rc1-final": {
       "type": "package",
