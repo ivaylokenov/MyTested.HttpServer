@@ -12,25 +12,29 @@
     /// <summary>
     /// Used for testing HTTP response message results from handlers.
     /// </summary>
-    public class HttpHandlerResponseMessageTestBuilder
-        : BaseHandlerTestBuilder, IAndHttpHandlerResponseMessageTestBuilder
+    public class HttpHandlerResponseMessageTestBuilder : IAndHttpHandlerResponseMessageTestBuilder
     {
         private readonly HttpResponseMessage httpResponseMessage;
+        private readonly HttpMessageHandler handler;
+        private readonly TimeSpan responseTime;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HttpHandlerResponseMessageTestBuilder" /> class.
         /// </summary>
         /// <param name="handler">Tested HTTP message handler.</param>
         /// <param name="httpResponseMessage">HTTP response result from the tested handler.</param>
+        /// <param name="responseTime">Measured response time from the tested handler.</param>
         public HttpHandlerResponseMessageTestBuilder(
             HttpMessageHandler handler,
-            HttpResponseMessage httpResponseMessage)
-            : base(handler)
+            HttpResponseMessage httpResponseMessage,
+            TimeSpan responseTime)
         {
             CommonValidator.CheckForNullReference(httpResponseMessage, errorMessageName: "HttpResponseMessage");
+            this.handler = handler;
             this.httpResponseMessage = httpResponseMessage;
+            this.responseTime = responseTime;
         }
-        
+
         /// <summary>
         /// Tests whether the content of the HTTP response message is of certain type.
         /// </summary>
@@ -246,7 +250,33 @@
             HttpResponseMessageValidator.WithSuccessStatusCode(this.httpResponseMessage, this.ThrowNewHttpResponseMessageAssertionException);
             return this;
         }
+        
+        /// <summary>
+        /// Tests whether the measured response time passes given assertions.
+        /// </summary>
+        /// <param name="assertions">Action containing all assertions on the measured response time.</param>
+        /// <returns>The same HTTP response message test builder.</returns>
+        public IAndHttpHandlerResponseMessageTestBuilder WithResponseTime(Action<TimeSpan> assertions)
+        {
+            assertions(this.responseTime);
+            return this;
+        }
 
+        /// <summary>
+        /// Tests whether the measured response time passes given predicate.
+        /// </summary>
+        /// <param name="predicate">Predicate testing the measured response time.</param>
+        /// <returns>The same HTTP response message test builder.</returns>
+        public IAndHttpHandlerResponseMessageTestBuilder WithResponseTime(Func<TimeSpan, bool> predicate)
+        {
+            if (!predicate(this.responseTime))
+            {
+                this.ThrowNewHttpResponseMessageAssertionException("response time", "to pass the given condition", "it failed");
+            }
+
+            return this;
+        }
+        
         /// <summary>
         /// AndAlso method for better readability when chaining HTTP response message tests.
         /// </summary>
@@ -254,6 +284,15 @@
         public IHttpHandlerResponseMessageTestBuilder AndAlso()
         {
             return this;
+        }
+
+        /// <summary>
+        /// Gets the HTTP message handler used in the testing.
+        /// </summary>
+        /// <returns>Instance of HttpMessageHandler.</returns>
+        public HttpMessageHandler AndProvideTheHandler()
+        {
+            return this.handler;
         }
 
         /// <summary>
@@ -266,6 +305,15 @@
         }
 
         /// <summary>
+        /// Gets the response time measured in the testing.
+        /// </summary>
+        /// <returns>Instance of TimeSpan.</returns>
+        public TimeSpan AndProvideTheResponseTime()
+        {
+            return this.responseTime;
+        }
+
+        /// <summary>
         /// Throws HttpResponseMessageAssertionException with specific message.
         /// </summary>
         /// <param name="propertyName">Tested property name of the HTTP response message.</param>
@@ -275,7 +323,7 @@
         {
             throw new HttpResponseMessageAssertionException(string.Format(
                     "When testing {0} expected HTTP response message result {1} {2}, but {3}.",
-                    this.Handler.GetName(),
+                    this.handler.GetName(),
                     propertyName,
                     expectedValue,
                     actualValue));

@@ -9,6 +9,6 @@
         /// Tests for a particular HTTP response message.
         /// </summary>
         /// <returns>HTTP response message test builder.</returns>
-        IHttpHandlerResponseMessageWithTimeTestBuilder ShouldReturnHttpResponseMessage();
+        IHttpHandlerResponseMessageTestBuilder ShouldReturnHttpResponseMessage();
     }
 }

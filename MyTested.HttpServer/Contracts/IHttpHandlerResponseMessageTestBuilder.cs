@@ -8,7 +8,7 @@
     /// <summary>
     /// Used for testing HTTP response message results.
     /// </summary>
-    public interface IHttpHandlerResponseMessageTestBuilder : IBaseHandlerTestBuilder
+    public interface IHttpHandlerResponseMessageTestBuilder
     {
         /// <summary>
         /// Tests whether the content of the HTTP response message is of certain type.
@@ -128,9 +128,35 @@
         IAndHttpHandlerResponseMessageTestBuilder WithSuccessStatusCode();
 
         /// <summary>
+        /// Tests whether the measured response time passes given assertions.
+        /// </summary>
+        /// <param name="assertions">Action containing all assertions on the measured response time.</param>
+        /// <returns>The same HTTP response message test builder.</returns>
+        IAndHttpHandlerResponseMessageTestBuilder WithResponseTime(Action<TimeSpan> assertions);
+
+        /// <summary>
+        /// Tests whether the measured response time passes given predicate.
+        /// </summary>
+        /// <param name="predicate">Predicate testing the measured response time.</param>
+        /// <returns>The same HTTP response message test builder.</returns>
+        IAndHttpHandlerResponseMessageTestBuilder WithResponseTime(Func<TimeSpan, bool> predicate);
+
+        /// <summary>
+        /// Gets the HTTP message handler used in the testing.
+        /// </summary>
+        /// <returns>Instance of HttpMessageHandler.</returns>
+        HttpMessageHandler AndProvideTheHandler();
+
+        /// <summary>
         /// Gets the HTTP request message used in the handler testing.
         /// </summary>
         /// <returns>Instance of HttpRequestMessage.</returns>
         HttpResponseMessage AndProvideTheHttpResponseMessage();
+
+        /// <summary>
+        /// Gets the response time measured in the testing.
+        /// </summary>
+        /// <returns>Instance of TimeSpan.</returns>
+        TimeSpan AndProvideTheResponseTime();
     }
 }

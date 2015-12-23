@@ -96,7 +96,7 @@
         /// Tests for a particular HTTP response message.
         /// </summary>
         /// <returns>HTTP response message test builder.</returns>
-        public IHttpHandlerResponseMessageWithTimeTestBuilder ShouldReturnHttpResponseMessage()
+        public IHttpHandlerResponseMessageTestBuilder ShouldReturnHttpResponseMessage()
         {
             var serverHandler = new ServerHttpMessageHandler(this.client, this.disposeClient);
             using (var invoker = new HttpMessageInvoker(serverHandler, true))
@@ -112,7 +112,7 @@
                     this.client.Dispose();
                 }
 
-                return new HttpHandlerResponseMessageWithTimeTestBuilder(serverHandler, httpResponseMessage, stopwatch.Elapsed);
+                return new HttpHandlerResponseMessageTestBuilder(serverHandler, httpResponseMessage, stopwatch.Elapsed);
             }
         }
     }
