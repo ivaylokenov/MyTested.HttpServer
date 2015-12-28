@@ -158,13 +158,13 @@
           "lib/net45/Microsoft.Owin.Hosting.dll": {}
         }
       },
-      "MyTested.HttpServer/0.1.0": {
+      "MyTested.HttpServer/1.0.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
-          "StyleCop.Analyzers": "1.0.0-rc2",
-          "System.Linq": "4.0.1-beta-23516",
-          "System.Linq.Expressions": "4.0.11-beta-23516",
+          "StyleCop.Analyzers": "1.0.0-rc3",
+          "System.Linq": "4.0.0",
+          "System.Linq.Expressions": "4.0.10",
           "System.Net.Http": "4.0.0"
         }
       },
@@ -186,10 +186,10 @@
           "lib/net40/Owin.dll": {}
         }
       },
-      "StyleCop.Analyzers/1.0.0-rc2": {
+      "StyleCop.Analyzers/1.0.0-rc3": {
         "type": "package"
       },
-      "System.Linq/4.0.1-beta-23516": {
+      "System.Linq/4.0.0": {
         "type": "package",
         "compile": {
           "ref/net45/_._": {}
@@ -198,13 +198,14 @@
           "lib/net45/_._": {}
         }
       },
-      "System.Linq.Expressions/4.0.11-beta-23516": {
+      "System.Linq.Expressions/4.0.10": {
         "type": "package",
-        "compile": {
-          "ref/net45/_._": {}
+        "dependencies": {
+          "System.Reflection": "4.0.0",
+          "System.Runtime": "4.0.0"
         },
-        "runtime": {
-          "lib/net45/_._": {}
+        "compile": {
+          "ref/dotnet/System.Linq.Expressions.dll": {}
         }
       },
       "System.Net.Http/4.0.0": {
@@ -212,6 +213,24 @@
         "frameworkAssemblies": [
           "System.Net.Http"
         ],
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      },
+      "System.Reflection/4.0.0": {
+        "type": "package",
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      },
+      "System.Runtime/4.0.0": {
+        "type": "package",
         "compile": {
           "ref/net45/_._": {}
         },
@@ -471,13 +490,13 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "MyTested.HttpServer/0.1.0": {
+      "MyTested.HttpServer/1.0.0": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
-          "StyleCop.Analyzers": "1.0.0-rc2",
-          "System.Linq": "4.0.1-beta-23516",
-          "System.Linq.Expressions": "4.0.11-beta-23516",
+          "StyleCop.Analyzers": "1.0.0-rc3",
+          "System.Linq": "4.0.0",
+          "System.Linq.Expressions": "4.0.10",
           "System.Net.Http": "4.0.0"
         }
       },
@@ -490,7 +509,7 @@
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
       },
-      "StyleCop.Analyzers/1.0.0-rc2": {
+      "StyleCop.Analyzers/1.0.0-rc3": {
         "type": "package"
       },
       "System.Collections/4.0.11-beta-23516": {
@@ -1378,13 +1397,13 @@
           "lib/net45/Microsoft.Owin.Hosting.dll": {}
         }
       },
-      "MyTested.HttpServer/0.1.0": {
+      "MyTested.HttpServer/1.0.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
-          "StyleCop.Analyzers": "1.0.0-rc2",
-          "System.Linq": "4.0.1-beta-23516",
-          "System.Linq.Expressions": "4.0.11-beta-23516",
+          "StyleCop.Analyzers": "1.0.0-rc3",
+          "System.Linq": "4.0.0",
+          "System.Linq.Expressions": "4.0.10",
           "System.Net.Http": "4.0.0"
         }
       },
@@ -1406,19 +1425,10 @@
           "lib/net40/Owin.dll": {}
         }
       },
-      "runtime.any.System.Linq.Expressions/4.0.11-beta-23516": {
-        "type": "package",
-        "compile": {
-          "ref/dotnet/_._": {}
-        },
-        "runtime": {
-          "lib/net45/_._": {}
-        }
-      },
-      "StyleCop.Analyzers/1.0.0-rc2": {
+      "StyleCop.Analyzers/1.0.0-rc3": {
         "type": "package"
       },
-      "System.Linq/4.0.1-beta-23516": {
+      "System.Linq/4.0.0": {
         "type": "package",
         "compile": {
           "ref/net45/_._": {}
@@ -1427,13 +1437,14 @@
           "lib/net45/_._": {}
         }
       },
-      "System.Linq.Expressions/4.0.11-beta-23516": {
+      "System.Linq.Expressions/4.0.10": {
         "type": "package",
-        "compile": {
-          "ref/net45/_._": {}
+        "dependencies": {
+          "System.Reflection": "4.0.0",
+          "System.Runtime": "4.0.0"
         },
-        "runtime": {
-          "lib/net45/_._": {}
+        "compile": {
+          "ref/dotnet/System.Linq.Expressions.dll": {}
         }
       },
       "System.Net.Http/4.0.0": {
@@ -1441,6 +1452,42 @@
         "frameworkAssemblies": [
           "System.Net.Http"
         ],
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      },
+      "System.Reflection/4.0.0": {
+        "type": "package",
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      },
+      "System.Reflection.Emit.ILGeneration/4.0.0": {
+        "type": "package",
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      },
+      "System.Reflection.Emit.Lightweight/4.0.0": {
+        "type": "package",
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      },
+      "System.Runtime/4.0.0": {
+        "type": "package",
         "compile": {
           "ref/net45/_._": {}
         },
@@ -1714,13 +1761,13 @@
           "lib/net45/Microsoft.Owin.Hosting.dll": {}
         }
       },
-      "MyTested.HttpServer/0.1.0": {
+      "MyTested.HttpServer/1.0.0": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
-          "StyleCop.Analyzers": "1.0.0-rc2",
-          "System.Linq": "4.0.1-beta-23516",
-          "System.Linq.Expressions": "4.0.11-beta-23516",
+          "StyleCop.Analyzers": "1.0.0-rc3",
+          "System.Linq": "4.0.0",
+          "System.Linq.Expressions": "4.0.10",
           "System.Net.Http": "4.0.0"
         }
       },
@@ -1742,19 +1789,10 @@
           "lib/net40/Owin.dll": {}
         }
       },
-      "runtime.any.System.Linq.Expressions/4.0.11-beta-23516": {
-        "type": "package",
-        "compile": {
-          "ref/dotnet/_._": {}
-        },
-        "runtime": {
-          "lib/net45/_._": {}
-        }
-      },
-      "StyleCop.Analyzers/1.0.0-rc2": {
+      "StyleCop.Analyzers/1.0.0-rc3": {
         "type": "package"
       },
-      "System.Linq/4.0.1-beta-23516": {
+      "System.Linq/4.0.0": {
         "type": "package",
         "compile": {
           "ref/net45/_._": {}
@@ -1763,13 +1801,14 @@
           "lib/net45/_._": {}
         }
       },
-      "System.Linq.Expressions/4.0.11-beta-23516": {
+      "System.Linq.Expressions/4.0.10": {
         "type": "package",
-        "compile": {
-          "ref/net45/_._": {}
+        "dependencies": {
+          "System.Reflection": "4.0.0",
+          "System.Runtime": "4.0.0"
         },
-        "runtime": {
-          "lib/net45/_._": {}
+        "compile": {
+          "ref/dotnet/System.Linq.Expressions.dll": {}
         }
       },
       "System.Net.Http/4.0.0": {
@@ -1777,6 +1816,42 @@
         "frameworkAssemblies": [
           "System.Net.Http"
         ],
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      },
+      "System.Reflection/4.0.0": {
+        "type": "package",
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      },
+      "System.Reflection.Emit.ILGeneration/4.0.0": {
+        "type": "package",
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      },
+      "System.Reflection.Emit.Lightweight/4.0.0": {
+        "type": "package",
+        "compile": {
+          "ref/net45/_._": {}
+        },
+        "runtime": {
+          "lib/net45/_._": {}
+        }
+      },
+      "System.Runtime/4.0.0": {
+        "type": "package",
         "compile": {
           "ref/net45/_._": {}
         },
@@ -2054,13 +2129,13 @@
           "lib/DNXCore50/Microsoft.Win32.Registry.dll": {}
         }
       },
-      "MyTested.HttpServer/0.1.0": {
+      "MyTested.HttpServer/1.0.0": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
-          "StyleCop.Analyzers": "1.0.0-rc2",
-          "System.Linq": "4.0.1-beta-23516",
-          "System.Linq.Expressions": "4.0.11-beta-23516",
+          "StyleCop.Analyzers": "1.0.0-rc3",
+          "System.Linq": "4.0.0",
+          "System.Linq.Expressions": "4.0.10",
           "System.Net.Http": "4.0.0"
         }
       },
@@ -2273,7 +2348,7 @@
           "runtimes/win7/lib/DNXCore50/System.Threading.dll": {}
         }
       },
-      "StyleCop.Analyzers/1.0.0-rc2": {
+      "StyleCop.Analyzers/1.0.0-rc3": {
         "type": "package"
       },
       "System.Collections/4.0.11-beta-23516": {
@@ -3312,13 +3387,13 @@
           "lib/DNXCore50/Microsoft.Win32.Registry.dll": {}
         }
       },
-      "MyTested.HttpServer/0.1.0": {
+      "MyTested.HttpServer/1.0.0": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
-          "StyleCop.Analyzers": "1.0.0-rc2",
-          "System.Linq": "4.0.1-beta-23516",
-          "System.Linq.Expressions": "4.0.11-beta-23516",
+          "StyleCop.Analyzers": "1.0.0-rc3",
+          "System.Linq": "4.0.0",
+          "System.Linq.Expressions": "4.0.10",
           "System.Net.Http": "4.0.0"
         }
       },
@@ -3531,7 +3606,7 @@
           "runtimes/win7/lib/DNXCore50/System.Threading.dll": {}
         }
       },
-      "StyleCop.Analyzers/1.0.0-rc2": {
+      "StyleCop.Analyzers/1.0.0-rc3": {
         "type": "package"
       },
       "System.Collections/4.0.11-beta-23516": {
@@ -4412,7 +4487,7 @@
     }
   },
   "libraries": {
-    "MyTested.HttpServer/0.1.0": {
+    "MyTested.HttpServer/1.0.0": {
       "type": "project",
       "path": "../../src/MyTested.HttpServer/project.json"
     },
@@ -4827,15 +4902,15 @@
         "runtimes/win8-aot/lib/netcore50/System.Threading.dll"
       ]
     },
-    "StyleCop.Analyzers/1.0.0-rc2": {
+    "StyleCop.Analyzers/1.0.0-rc3": {
       "type": "package",
-      "sha512": "117rhxMQfhjOsxRANp/qInBcajjMDu5qfncnQInizycc5djmTEp+MJwWKNgGgjT39tpxt4d7BLKy3PekHQR/Lw==",
+      "sha512": "Dm7BSsASylKifcKS7GJAT8wON7yCjCajaLqXGIBshudW6AXWWNvXK72wVlYRuEdHVq+vDQRKd3TOyzsCbNC67g==",
       "files": [
         "analyzers/dotnet/cs/Newtonsoft.Json.dll",
         "analyzers/dotnet/cs/StyleCop.Analyzers.CodeFixes.dll",
         "analyzers/dotnet/cs/StyleCop.Analyzers.dll",
-        "StyleCop.Analyzers.1.0.0-rc2.nupkg",
-        "StyleCop.Analyzers.1.0.0-rc2.nupkg.sha512",
+        "StyleCop.Analyzers.1.0.0-rc3.nupkg",
+        "StyleCop.Analyzers.1.0.0-rc3.nupkg.sha512",
         "StyleCop.Analyzers.nuspec",
         "tools/install.ps1",
         "tools/uninstall.ps1"
@@ -5587,6 +5662,39 @@
         "System.IO.FileSystem.Primitives.nuspec"
       ]
     },
+    "System.Linq/4.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "r6Hlc+ytE6m/9UBr+nNRRdoJEWjoeQiT3L3lXYFDHoXk3VYsRBCDNXrawcexw7KPLaH0zamQLiAb6avhZ50cGg==",
+      "files": [
+        "lib/dotnet/System.Linq.dll",
+        "lib/net45/_._",
+        "lib/netcore50/System.Linq.dll",
+        "lib/win8/_._",
+        "lib/wp80/_._",
+        "lib/wpa81/_._",
+        "ref/dotnet/de/System.Linq.xml",
+        "ref/dotnet/es/System.Linq.xml",
+        "ref/dotnet/fr/System.Linq.xml",
+        "ref/dotnet/it/System.Linq.xml",
+        "ref/dotnet/ja/System.Linq.xml",
+        "ref/dotnet/ko/System.Linq.xml",
+        "ref/dotnet/ru/System.Linq.xml",
+        "ref/dotnet/System.Linq.dll",
+        "ref/dotnet/System.Linq.xml",
+        "ref/dotnet/zh-hans/System.Linq.xml",
+        "ref/dotnet/zh-hant/System.Linq.xml",
+        "ref/net45/_._",
+        "ref/netcore50/System.Linq.dll",
+        "ref/netcore50/System.Linq.xml",
+        "ref/win8/_._",
+        "ref/wp80/_._",
+        "ref/wpa81/_._",
+        "System.Linq.4.0.0.nupkg",
+        "System.Linq.4.0.0.nupkg.sha512",
+        "System.Linq.nuspec"
+      ]
+    },
     "System.Linq/4.0.1-beta-23516": {
       "type": "package",
       "serviceable": true,
@@ -5627,6 +5735,41 @@
         "System.Linq.4.0.1-beta-23516.nupkg",
         "System.Linq.4.0.1-beta-23516.nupkg.sha512",
         "System.Linq.nuspec"
+      ]
+    },
+    "System.Linq.Expressions/4.0.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "qhFkPqRsTfXBaacjQhxwwwUoU7TEtwlBIULj7nG7i4qAkvivil31VvOvDKppCSui5yGw0/325ZeNaMYRvTotXw==",
+      "files": [
+        "lib/DNXCore50/System.Linq.Expressions.dll",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net46/_._",
+        "lib/netcore50/System.Linq.Expressions.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "ref/dotnet/de/System.Linq.Expressions.xml",
+        "ref/dotnet/es/System.Linq.Expressions.xml",
+        "ref/dotnet/fr/System.Linq.Expressions.xml",
+        "ref/dotnet/it/System.Linq.Expressions.xml",
+        "ref/dotnet/ja/System.Linq.Expressions.xml",
+        "ref/dotnet/ko/System.Linq.Expressions.xml",
+        "ref/dotnet/ru/System.Linq.Expressions.xml",
+        "ref/dotnet/System.Linq.Expressions.dll",
+        "ref/dotnet/System.Linq.Expressions.xml",
+        "ref/dotnet/zh-hans/System.Linq.Expressions.xml",
+        "ref/dotnet/zh-hant/System.Linq.Expressions.xml",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net46/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "runtime.json",
+        "runtimes/win8-aot/lib/netcore50/System.Linq.Expressions.dll",
+        "System.Linq.Expressions.4.0.10.nupkg",
+        "System.Linq.Expressions.4.0.10.nupkg.sha512",
+        "System.Linq.Expressions.nuspec"
       ]
     },
     "System.Linq.Expressions/4.0.11-beta-23516": {
@@ -5940,6 +6083,54 @@
         "System.Private.Uri.nuspec"
       ]
     },
+    "System.Reflection/4.0.0": {
+      "type": "package",
+      "sha512": "g96Rn8XuG7y4VfxPj/jnXroRJdQ8L3iN3k3zqsuzk4k3Nq4KMXARYiIO4BLW4GwX06uQpuYwRMcAC/aF117knQ==",
+      "files": [
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net45/_._",
+        "lib/win8/_._",
+        "lib/wp80/_._",
+        "lib/wpa81/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "License.rtf",
+        "ref/dotnet/de/System.Reflection.xml",
+        "ref/dotnet/es/System.Reflection.xml",
+        "ref/dotnet/fr/System.Reflection.xml",
+        "ref/dotnet/it/System.Reflection.xml",
+        "ref/dotnet/ja/System.Reflection.xml",
+        "ref/dotnet/ko/System.Reflection.xml",
+        "ref/dotnet/ru/System.Reflection.xml",
+        "ref/dotnet/System.Reflection.dll",
+        "ref/dotnet/System.Reflection.xml",
+        "ref/dotnet/zh-hans/System.Reflection.xml",
+        "ref/dotnet/zh-hant/System.Reflection.xml",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net45/_._",
+        "ref/netcore50/de/System.Reflection.xml",
+        "ref/netcore50/es/System.Reflection.xml",
+        "ref/netcore50/fr/System.Reflection.xml",
+        "ref/netcore50/it/System.Reflection.xml",
+        "ref/netcore50/ja/System.Reflection.xml",
+        "ref/netcore50/ko/System.Reflection.xml",
+        "ref/netcore50/ru/System.Reflection.xml",
+        "ref/netcore50/System.Reflection.dll",
+        "ref/netcore50/System.Reflection.xml",
+        "ref/netcore50/zh-hans/System.Reflection.xml",
+        "ref/netcore50/zh-hant/System.Reflection.xml",
+        "ref/win8/_._",
+        "ref/wp80/_._",
+        "ref/wpa81/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "System.Reflection.4.0.0.nupkg",
+        "System.Reflection.4.0.0.nupkg.sha512",
+        "System.Reflection.nuspec"
+      ]
+    },
     "System.Reflection/4.1.0-beta-23225": {
       "type": "package",
       "serviceable": true,
@@ -6236,6 +6427,54 @@
         "System.Resources.ResourceManager.4.0.1-beta-23516.nupkg",
         "System.Resources.ResourceManager.4.0.1-beta-23516.nupkg.sha512",
         "System.Resources.ResourceManager.nuspec"
+      ]
+    },
+    "System.Runtime/4.0.0": {
+      "type": "package",
+      "sha512": "Uq9epame8hEqJlj4KaWb67dDJvj4IM37jRFGVeFbugRdPz48bR0voyBhrbf3iSa2tAmlkg4lsa6BUOL9iwlMew==",
+      "files": [
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net45/_._",
+        "lib/win8/_._",
+        "lib/wp80/_._",
+        "lib/wpa81/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "License.rtf",
+        "ref/dotnet/de/System.Runtime.xml",
+        "ref/dotnet/es/System.Runtime.xml",
+        "ref/dotnet/fr/System.Runtime.xml",
+        "ref/dotnet/it/System.Runtime.xml",
+        "ref/dotnet/ja/System.Runtime.xml",
+        "ref/dotnet/ko/System.Runtime.xml",
+        "ref/dotnet/ru/System.Runtime.xml",
+        "ref/dotnet/System.Runtime.dll",
+        "ref/dotnet/System.Runtime.xml",
+        "ref/dotnet/zh-hans/System.Runtime.xml",
+        "ref/dotnet/zh-hant/System.Runtime.xml",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net45/_._",
+        "ref/netcore50/de/System.Runtime.xml",
+        "ref/netcore50/es/System.Runtime.xml",
+        "ref/netcore50/fr/System.Runtime.xml",
+        "ref/netcore50/it/System.Runtime.xml",
+        "ref/netcore50/ja/System.Runtime.xml",
+        "ref/netcore50/ko/System.Runtime.xml",
+        "ref/netcore50/ru/System.Runtime.xml",
+        "ref/netcore50/System.Runtime.dll",
+        "ref/netcore50/System.Runtime.xml",
+        "ref/netcore50/zh-hans/System.Runtime.xml",
+        "ref/netcore50/zh-hant/System.Runtime.xml",
+        "ref/win8/_._",
+        "ref/wp80/_._",
+        "ref/wpa81/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "System.Runtime.4.0.0.nupkg",
+        "System.Runtime.4.0.0.nupkg.sha512",
+        "System.Runtime.nuspec"
       ]
     },
     "System.Runtime/4.0.21-beta-23516": {
@@ -7123,8 +7362,8 @@
     "": [
       "xunit >= 2.1.0",
       "xunit.runner.dnx >= 2.1.0-rc1-build204",
-      "StyleCop.Analyzers >= 1.0.0-rc2",
-      "MyTested.HttpServer >= 0.1.0-*"
+      "StyleCop.Analyzers >= 1.0.0-rc3",
+      "MyTested.HttpServer >= 1.0.0"
     ],
     "DNX,Version=v4.5.1": [
       "Microsoft.Owin.Host.HttpListener >= 3.0.1",
