@@ -1,7 +1,6 @@
 ﻿namespace MyTested.HttpServer.Tests.BuildersTests
 {
     using System;
-    using System.Collections.Generic;
     using System.Net;
     using System.Net.Http;
     using Exceptions;
@@ -33,32 +32,7 @@
             localServer.Dispose();
 #endif
         }
-
-        [Fact]
-        public void WithContentOfTypeShouldNotThrowExceptionWithCorrectContent()
-        {
-            MyHttpServer
-                .WorkingRemotely(BaseAddress)
-                .WithHttpRequestMessage(req => req.WithMethod(HttpMethod.Get))
-                .ShouldReturnHttpResponseMessage()
-                .WithContentOfType<StreamContent>();
-        }
-
-        [Fact]
-        public void WithContentOfTypeShouldThrowExceptionWithIncorrectContent()
-        {
-            var exception = Assert.Throws<HttpResponseMessageAssertionException>(() =>
-            {
-                MyHttpServer
-                    .WorkingRemotely(BaseAddress)
-                    .WithHttpRequestMessage(req => req.WithMethod(HttpMethod.Get))
-                    .ShouldReturnHttpResponseMessage()
-                    .WithContentOfType<StringContent>();
-            });
-
-            Assert.Equal("When testing 'http://mytestedasp.net/' expected HTTP response message result content to be StringContent, but was in fact StreamContent.", exception.Message);
-        }
-
+        
         [Fact]
         public void ContainingHeaderShouldNotThrowExceptionWithCorrectHeaderName()
         {
@@ -149,26 +123,7 @@
             Assert.Equal("When testing 'http://mytestedasp.net/' expected HTTP response message result headers to contain Server with 2 values, but instead found 1.", exception.Message);
 
         }
-
-        [Fact]
-        public void ContainingHeaderShouldNotThrowExceptionWithCorrectDictionaryOfHeadersWithInvalidCount()
-        {
-            var exception = Assert.Throws<HttpResponseMessageAssertionException>(() =>
-            {
-                MyHttpServer
-                    .WorkingRemotely(BaseAddress)
-                    .WithHttpRequestMessage(req => req.WithMethod(HttpMethod.Get))
-                    .ShouldReturnHttpResponseMessage()
-                    .ContainingHeaders(new Dictionary<string, IEnumerable<string>>
-                    {
-                        { "TestHeader", new List<string> { "TestHeaderValue" } },
-                        { "AnotherTestHeader", new List<string> { "TestHeaderValue" } }
-                    });
-            });
-
-            Assert.Equal("When testing 'http://mytestedasp.net/' expected HTTP response message result headers to be 2, but were in fact 7.", exception.Message);
-        }
-
+        
         [Fact]
         public void ContainingContentHeaderShouldNotThrowExceptionWithCorrectHeaderName()
         {
@@ -258,39 +213,7 @@
 
             Assert.Equal("When testing 'http://mytestedasp.net/' expected HTTP response message result content headers to contain Content-Type with 2 values, but instead found 1.", exception.Message);
         }
-
-        [Fact]
-        public void ContainingContentHeadersShouldNotThrowExceptionWithCorrectDictionaryOfHeaders()
-        {
-            MyHttpServer
-                .WorkingRemotely(BaseAddress)
-                .WithHttpRequestMessage(req => req.WithMethod(HttpMethod.Get))
-                .ShouldReturnHttpResponseMessage()
-                .ContainingContentHeaders(new Dictionary<string, IEnumerable<string>>
-                {
-                    { "Content-Length", new List<string> { "19529" } },
-                    { "Content-Type", new List<string> { "text/html; charset=utf-8" } },
-                });
-        }
-
-        [Fact]
-        public void ContainingContentHeadersShouldNotThrowExceptionWithCorrectDictionaryOfHeadersWithInvalidCount()
-        {
-            var exception = Assert.Throws<HttpResponseMessageAssertionException>(() =>
-            {
-                MyHttpServer
-                    .WorkingRemotely(BaseAddress)
-                    .WithHttpRequestMessage(req => req.WithMethod(HttpMethod.Get))
-                    .ShouldReturnHttpResponseMessage()
-                    .ContainingContentHeaders(new Dictionary<string, IEnumerable<string>>
-                    {
-                        { "TestHeader", new List<string> { "TestHeaderValue" } }
-                    });
-            });
-
-            Assert.Equal("When testing 'http://mytestedasp.net/' expected HTTP response message result content headers to be 1, but were in fact 2.", exception.Message);
-        }
-
+        
         [Fact]
         public void WithStatusCodeShouldNotThrowExceptionWithValidStatusCode()
         {
@@ -517,17 +440,17 @@
         }
 
         [Fact]
-        public void WithStringContentOfTypeShouldNotThrowExceptionWithCorrectContent()
+        public void WithStringContentShouldNotThrowExceptionWithCorrectContent()
         {
             MyHttpServer
                 .WorkingRemotely(BaseLocalAddress)
                 .WithHttpRequestMessage(req => req.WithMethod(HttpMethod.Get))
                 .ShouldReturnHttpResponseMessage()
-                .WithStringContent("Not found!");
+                .WithContent("Not found!");
         }
 
         [Fact]
-        public void WithStringContentOfTypeShouldThrowExceptionWithIncorrectContent()
+        public void WithStringContentShouldThrowExceptionWithIncorrectContent()
         {
             var exception = Assert.Throws<HttpResponseMessageAssertionException>(() =>
             {
@@ -535,10 +458,48 @@
                     .WorkingRemotely(BaseLocalAddress)
                     .WithHttpRequestMessage(req => req.WithMethod(HttpMethod.Get))
                     .ShouldReturnHttpResponseMessage()
-                    .WithStringContent("Another string");
+                    .WithContent("Another string");
             });
 
             Assert.Equal("When testing 'http://localhost:9876/' expected HTTP response message result string content to be 'Another string', but was in fact 'Not found!'.", exception.Message);
+        }
+
+        [Fact]
+        public void WithStringContentAssertionsShouldWorkCorrectlyWithCorrectAssertions()
+        {
+            MyHttpServer
+                .WorkingRemotely(BaseLocalAddress)
+                .WithHttpRequestMessage(req => req.WithMethod(HttpMethod.Get))
+                .ShouldReturnHttpResponseMessage()
+                .WithContent(content => 
+                {
+                    Assert.Equal("Not found!", content);
+                });
+        }
+
+        [Fact]
+        public void WithStringContentAssertionsShouldWorkCorrectlyWithCorrectPredicate()
+        {
+            MyHttpServer
+                .WorkingRemotely(BaseLocalAddress)
+                .WithHttpRequestMessage(req => req.WithMethod(HttpMethod.Get))
+                .ShouldReturnHttpResponseMessage()
+                .WithContent(content => content == "Not found!");
+        }
+        
+        [Fact]
+        public void WithStringContentAssertionsShouldThrowExceptionWithIncorrectPredicate()
+        {
+            var exception = Assert.Throws<HttpResponseMessageAssertionException>(() =>
+            {
+                MyHttpServer
+                    .WorkingRemotely(BaseLocalAddress)
+                    .WithHttpRequestMessage(req => req.WithMethod(HttpMethod.Get))
+                    .ShouldReturnHttpResponseMessage()
+                    .WithContent(content => content == "Not");
+            });
+
+            Assert.Equal("When testing 'http://localhost:9876/' expected HTTP response message result content to pass the given condition, but it failed.", exception.Message);
         }
 #endif
     }

@@ -40,31 +40,42 @@
         }
 
         /// <summary>
-        /// Tests whether the content of the HTTP response message is of certain type.
+        /// Tests whether the content of the HTTP response message is the provided string.
         /// </summary>
-        /// <typeparam name="TContentType">Type of expected HTTP content.</typeparam>
+        /// <param name="content">Expected string content.</param>
         /// <returns>The same HTTP response message test builder.</returns>
-        public IAndHttpResponseMessageTestBuilder WithContentOfType<TContentType>()
-            where TContentType : HttpContent
+        public IAndHttpResponseMessageTestBuilder WithContent(string content)
         {
-            HttpResponseMessageValidator.WithContentOfType<TContentType>(
+            HttpResponseMessageValidator.WithStringContent(
                 this.httpResponseMessage.Content,
+                content,
                 this.ThrowNewHttpResponseMessageAssertionException);
 
             return this;
         }
 
         /// <summary>
-        /// Tests whether the content of the HTTP response message is the provided string.
+        /// Tests whether the content of the HTTP response message passes given assertions.
         /// </summary>
-        /// <param name="content">Expected string content.</param>
+        /// <param name="assertions">Action containing all assertions on the content.</param>
         /// <returns>The same HTTP response message test builder.</returns>
-        public IAndHttpResponseMessageTestBuilder WithStringContent(string content)
+        public IAndHttpResponseMessageTestBuilder WithContent(Action<string> assertions)
         {
-            HttpResponseMessageValidator.WithStringContent(
-                this.httpResponseMessage.Content,
-                content,
-                this.ThrowNewHttpResponseMessageAssertionException);
+            assertions(this.GetContentAsString());
+            return this;
+        }
+
+        /// <summary>
+        /// Tests whether the content of the HTTP response message passes given predicate.
+        /// </summary>
+        /// <param name="predicate">Predicate testing the content.</param>
+        /// <returns>The same HTTP response message test builder.</returns>
+        public IAndHttpResponseMessageTestBuilder WithContent(Func<string, bool> predicate)
+        {
+            if (!predicate(this.GetContentAsString()))
+            {
+                this.ThrowNewHttpResponseMessageAssertionException("content", "to pass the given condition", "it failed");
+            }
 
             return this;
         }
@@ -101,18 +112,6 @@
         public IAndHttpResponseMessageTestBuilder ContainingHeader(string name, IEnumerable<string> values)
         {
             HttpResponseMessageValidator.ContainingHeader(this.httpResponseMessage.Headers, name, values, this.ThrowNewHttpResponseMessageAssertionException);
-            return this;
-        }
-
-        /// <summary>
-        /// Tests whether the HTTP response message contains response headers provided by dictionary.
-        /// </summary>
-        /// <param name="headers">Dictionary containing response headers.</param>
-        /// <returns>The same HTTP response message test builder.</returns>
-        public IAndHttpResponseMessageTestBuilder ContainingHeaders(IDictionary<string, IEnumerable<string>> headers)
-        {
-            HttpResponseMessageValidator.ValidateHeadersCount(headers, this.httpResponseMessage.Headers, this.ThrowNewHttpResponseMessageAssertionException);
-            headers.ForEach(h => this.ContainingHeader(h.Key, h.Value));
             return this;
         }
 
@@ -170,26 +169,7 @@
 
             return this;
         }
-
-        /// <summary>
-        /// Tests whether the HTTP response message contains content headers provided by dictionary.
-        /// </summary>
-        /// <param name="headers">Dictionary containing content headers.</param>
-        /// <returns>The same HTTP response message test builder.</returns>
-        public IAndHttpResponseMessageTestBuilder ContainingContentHeaders(
-            IDictionary<string, IEnumerable<string>> headers)
-        {
-            HttpResponseMessageValidator.ValidateContent(this.httpResponseMessage.Content, this.ThrowNewHttpResponseMessageAssertionException);
-            HttpResponseMessageValidator.ValidateHeadersCount(
-                headers,
-                this.httpResponseMessage.Content.Headers,
-                this.ThrowNewHttpResponseMessageAssertionException,
-                isContentHeaders: true);
-
-            headers.ForEach(h => this.ContainingContentHeader(h.Key, h.Value));
-            return this;
-        }
-
+        
         /// <summary>
         /// Tests whether HTTP response message status code is the same as the provided HttpStatusCode.
         /// </summary>
@@ -331,6 +311,11 @@
                     propertyName,
                     expectedValue,
                     actualValue));
+        }
+
+        private string GetContentAsString()
+        {
+            return this.httpResponseMessage.Content.ReadAsStringAsync().Result;
         }
     }
 }
