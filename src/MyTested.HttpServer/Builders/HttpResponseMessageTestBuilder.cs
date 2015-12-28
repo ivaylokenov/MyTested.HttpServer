@@ -12,26 +12,30 @@
     /// <summary>
     /// Used for testing HTTP response message results from handlers.
     /// </summary>
-    public class HttpHandlerResponseMessageTestBuilder : IAndHttpHandlerResponseMessageTestBuilder
+    public class HttpResponseMessageTestBuilder : IAndHttpResponseMessageTestBuilder
     {
         private readonly HttpResponseMessage httpResponseMessage;
         private readonly HttpMessageHandler handler;
+        private readonly Uri requestUri;
         private readonly TimeSpan responseTime;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="HttpHandlerResponseMessageTestBuilder" /> class.
+        /// Initializes a new instance of the <see cref="HttpResponseMessageTestBuilder" /> class.
         /// </summary>
         /// <param name="handler">Tested HTTP message handler.</param>
         /// <param name="httpResponseMessage">HTTP response result from the tested handler.</param>
+        /// <param name="requestUri">HTTP request Uri.</param>
         /// <param name="responseTime">Measured response time from the tested handler.</param>
-        public HttpHandlerResponseMessageTestBuilder(
+        public HttpResponseMessageTestBuilder(
             HttpMessageHandler handler,
             HttpResponseMessage httpResponseMessage,
+            Uri requestUri,
             TimeSpan responseTime)
         {
             CommonValidator.CheckForNullReference(httpResponseMessage, errorMessageName: "HttpResponseMessage");
             this.handler = handler;
             this.httpResponseMessage = httpResponseMessage;
+            this.requestUri = requestUri;
             this.responseTime = responseTime;
         }
 
@@ -40,7 +44,7 @@
         /// </summary>
         /// <typeparam name="TContentType">Type of expected HTTP content.</typeparam>
         /// <returns>The same HTTP response message test builder.</returns>
-        public IAndHttpHandlerResponseMessageTestBuilder WithContentOfType<TContentType>()
+        public IAndHttpResponseMessageTestBuilder WithContentOfType<TContentType>()
             where TContentType : HttpContent
         {
             HttpResponseMessageValidator.WithContentOfType<TContentType>(
@@ -55,7 +59,7 @@
         /// </summary>
         /// <param name="content">Expected string content.</param>
         /// <returns>The same HTTP response message test builder.</returns>
-        public IAndHttpHandlerResponseMessageTestBuilder WithStringContent(string content)
+        public IAndHttpResponseMessageTestBuilder WithStringContent(string content)
         {
             HttpResponseMessageValidator.WithStringContent(
                 this.httpResponseMessage.Content,
@@ -70,7 +74,7 @@
         /// </summary>
         /// <param name="name">Name of expected response header.</param>
         /// <returns>The same HTTP response message test builder.</returns>
-        public IAndHttpHandlerResponseMessageTestBuilder ContainingHeader(string name)
+        public IAndHttpResponseMessageTestBuilder ContainingHeader(string name)
         {
             HttpResponseMessageValidator.ContainingHeader(this.httpResponseMessage.Headers, name, this.ThrowNewHttpResponseMessageAssertionException);
             return this;
@@ -82,7 +86,7 @@
         /// <param name="name">Name of expected response header.</param>
         /// <param name="value">Value of expected response header.</param>
         /// <returns>The same HTTP response message test builder.</returns>
-        public IAndHttpHandlerResponseMessageTestBuilder ContainingHeader(string name, string value)
+        public IAndHttpResponseMessageTestBuilder ContainingHeader(string name, string value)
         {
             HttpResponseMessageValidator.ContainingHeader(this.httpResponseMessage.Headers, name, value, this.ThrowNewHttpResponseMessageAssertionException);
             return this;
@@ -94,7 +98,7 @@
         /// <param name="name">Name of expected response header.</param>
         /// <param name="values">Collection of values in the expected response header.</param>
         /// <returns>The same HTTP response message test builder.</returns>
-        public IAndHttpHandlerResponseMessageTestBuilder ContainingHeader(string name, IEnumerable<string> values)
+        public IAndHttpResponseMessageTestBuilder ContainingHeader(string name, IEnumerable<string> values)
         {
             HttpResponseMessageValidator.ContainingHeader(this.httpResponseMessage.Headers, name, values, this.ThrowNewHttpResponseMessageAssertionException);
             return this;
@@ -105,7 +109,7 @@
         /// </summary>
         /// <param name="headers">Dictionary containing response headers.</param>
         /// <returns>The same HTTP response message test builder.</returns>
-        public IAndHttpHandlerResponseMessageTestBuilder ContainingHeaders(IDictionary<string, IEnumerable<string>> headers)
+        public IAndHttpResponseMessageTestBuilder ContainingHeaders(IDictionary<string, IEnumerable<string>> headers)
         {
             HttpResponseMessageValidator.ValidateHeadersCount(headers, this.httpResponseMessage.Headers, this.ThrowNewHttpResponseMessageAssertionException);
             headers.ForEach(h => this.ContainingHeader(h.Key, h.Value));
@@ -117,7 +121,7 @@
         /// </summary>
         /// <param name="name">Name of expected content header.</param>
         /// <returns>The same HTTP response message test builder.</returns>
-        public IAndHttpHandlerResponseMessageTestBuilder ContainingContentHeader(string name)
+        public IAndHttpResponseMessageTestBuilder ContainingContentHeader(string name)
         {
             HttpResponseMessageValidator.ValidateContent(this.httpResponseMessage.Content, this.ThrowNewHttpResponseMessageAssertionException);
             HttpResponseMessageValidator.ContainingHeader(
@@ -135,7 +139,7 @@
         /// <param name="name">Name of expected content header.</param>
         /// <param name="value">Value of expected content header.</param>
         /// <returns>The same HTTP response message test builder.</returns>
-        public IAndHttpHandlerResponseMessageTestBuilder ContainingContentHeader(string name, string value)
+        public IAndHttpResponseMessageTestBuilder ContainingContentHeader(string name, string value)
         {
             HttpResponseMessageValidator.ValidateContent(this.httpResponseMessage.Content, this.ThrowNewHttpResponseMessageAssertionException);
             HttpResponseMessageValidator.ContainingHeader(
@@ -154,7 +158,7 @@
         /// <param name="name">Name of expected content header.</param>
         /// <param name="values">Collection of values in the expected content header.</param>
         /// <returns>The same HTTP response message test builder.</returns>
-        public IAndHttpHandlerResponseMessageTestBuilder ContainingContentHeader(string name, IEnumerable<string> values)
+        public IAndHttpResponseMessageTestBuilder ContainingContentHeader(string name, IEnumerable<string> values)
         {
             HttpResponseMessageValidator.ValidateContent(this.httpResponseMessage.Content, this.ThrowNewHttpResponseMessageAssertionException);
             HttpResponseMessageValidator.ContainingHeader(
@@ -172,7 +176,7 @@
         /// </summary>
         /// <param name="headers">Dictionary containing content headers.</param>
         /// <returns>The same HTTP response message test builder.</returns>
-        public IAndHttpHandlerResponseMessageTestBuilder ContainingContentHeaders(
+        public IAndHttpResponseMessageTestBuilder ContainingContentHeaders(
             IDictionary<string, IEnumerable<string>> headers)
         {
             HttpResponseMessageValidator.ValidateContent(this.httpResponseMessage.Content, this.ThrowNewHttpResponseMessageAssertionException);
@@ -191,7 +195,7 @@
         /// </summary>
         /// <param name="statusCode">Expected status code.</param>
         /// <returns>The same HTTP response message test builder.</returns>
-        public IAndHttpHandlerResponseMessageTestBuilder WithStatusCode(HttpStatusCode statusCode)
+        public IAndHttpResponseMessageTestBuilder WithStatusCode(HttpStatusCode statusCode)
         {
             HttpResponseMessageValidator.WithStatusCode(this.httpResponseMessage, statusCode, this.ThrowNewHttpResponseMessageAssertionException);
             return this;
@@ -202,7 +206,7 @@
         /// </summary>
         /// <param name="version">Expected version as string.</param>
         /// <returns>The same HTTP response message test builder.</returns>
-        public IAndHttpHandlerResponseMessageTestBuilder WithVersion(string version)
+        public IAndHttpResponseMessageTestBuilder WithVersion(string version)
         {
             var parsedVersion = VersionValidator.TryParse(version, this.ThrowNewHttpResponseMessageAssertionException);
             return this.WithVersion(parsedVersion);
@@ -214,7 +218,7 @@
         /// <param name="major">Major number in the expected version.</param>
         /// <param name="minor">Minor number in the expected version.</param>
         /// <returns>The same HTTP response message test builder.</returns>
-        public IAndHttpHandlerResponseMessageTestBuilder WithVersion(int major, int minor)
+        public IAndHttpResponseMessageTestBuilder WithVersion(int major, int minor)
         {
             return this.WithVersion(new Version(major, minor));
         }
@@ -224,7 +228,7 @@
         /// </summary>
         /// <param name="version">Expected version.</param>
         /// <returns>The same HTTP response message test builder.</returns>
-        public IAndHttpHandlerResponseMessageTestBuilder WithVersion(Version version)
+        public IAndHttpResponseMessageTestBuilder WithVersion(Version version)
         {
             HttpResponseMessageValidator.WithVersion(this.httpResponseMessage, version, this.ThrowNewHttpResponseMessageAssertionException);
             return this;
@@ -235,7 +239,7 @@
         /// </summary>
         /// <param name="reasonPhrase">Expected reason phrase as string.</param>
         /// <returns>The same HTTP response message test builder.</returns>
-        public IAndHttpHandlerResponseMessageTestBuilder WithReasonPhrase(string reasonPhrase)
+        public IAndHttpResponseMessageTestBuilder WithReasonPhrase(string reasonPhrase)
         {
             HttpResponseMessageValidator.WithReasonPhrase(this.httpResponseMessage, reasonPhrase, this.ThrowNewHttpResponseMessageAssertionException);
             return this;
@@ -245,7 +249,7 @@
         /// Tests whether HTTP response message returns success status code between 200 and 299.
         /// </summary>
         /// <returns>The same HTTP response message test builder.</returns>
-        public IAndHttpHandlerResponseMessageTestBuilder WithSuccessStatusCode()
+        public IAndHttpResponseMessageTestBuilder WithSuccessStatusCode()
         {
             HttpResponseMessageValidator.WithSuccessStatusCode(this.httpResponseMessage, this.ThrowNewHttpResponseMessageAssertionException);
             return this;
@@ -256,7 +260,7 @@
         /// </summary>
         /// <param name="assertions">Action containing all assertions on the measured response time.</param>
         /// <returns>The same HTTP response message test builder.</returns>
-        public IAndHttpHandlerResponseMessageTestBuilder WithResponseTime(Action<TimeSpan> assertions)
+        public IAndHttpResponseMessageTestBuilder WithResponseTime(Action<TimeSpan> assertions)
         {
             assertions(this.responseTime);
             return this;
@@ -267,7 +271,7 @@
         /// </summary>
         /// <param name="predicate">Predicate testing the measured response time.</param>
         /// <returns>The same HTTP response message test builder.</returns>
-        public IAndHttpHandlerResponseMessageTestBuilder WithResponseTime(Func<TimeSpan, bool> predicate)
+        public IAndHttpResponseMessageTestBuilder WithResponseTime(Func<TimeSpan, bool> predicate)
         {
             if (!predicate(this.responseTime))
             {
@@ -281,7 +285,7 @@
         /// AndAlso method for better readability when chaining HTTP response message tests.
         /// </summary>
         /// <returns>The same HTTP response message test builder.</returns>
-        public IHttpHandlerResponseMessageTestBuilder AndAlso()
+        public IHttpResponseMessageTestBuilder AndAlso()
         {
             return this;
         }
@@ -322,8 +326,8 @@
         protected void ThrowNewHttpResponseMessageAssertionException(string propertyName, string expectedValue, string actualValue)
         {
             throw new HttpResponseMessageAssertionException(string.Format(
-                    "When testing {0} expected HTTP response message result {1} {2}, but {3}.",
-                    this.handler.GetName(),
+                    "When testing '{0}' expected HTTP response message result {1} {2}, but {3}.",
+                    this.requestUri.ToString(),
                     propertyName,
                     expectedValue,
                     actualValue));
