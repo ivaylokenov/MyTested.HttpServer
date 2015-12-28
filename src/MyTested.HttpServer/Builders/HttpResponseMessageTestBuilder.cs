@@ -1,6 +1,5 @@
 ﻿namespace MyTested.HttpServer.Builders
 {
-    using Common;
     using Contracts;
     using Exceptions;
     using System;
