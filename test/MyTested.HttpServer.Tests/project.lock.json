@@ -158,11 +158,10 @@
           "lib/net45/Microsoft.Owin.Hosting.dll": {}
         }
       },
-      "MyTested.HttpServer/1.0.0": {
+      "MyTested.HttpServer/1.0.1": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
-          "StyleCop.Analyzers": "1.0.0-rc3",
           "System.Linq": "4.0.0",
           "System.Linq.Expressions": "4.0.10",
           "System.Net.Http": "4.0.0"
@@ -185,9 +184,6 @@
         "runtime": {
           "lib/net40/Owin.dll": {}
         }
-      },
-      "StyleCop.Analyzers/1.0.0-rc3": {
-        "type": "package"
       },
       "System.Linq/4.0.0": {
         "type": "package",
@@ -490,11 +486,10 @@
           "lib/dotnet/Microsoft.Win32.Primitives.dll": {}
         }
       },
-      "MyTested.HttpServer/1.0.0": {
+      "MyTested.HttpServer/1.0.1": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
-          "StyleCop.Analyzers": "1.0.0-rc3",
           "System.Linq": "4.0.0",
           "System.Linq.Expressions": "4.0.10",
           "System.Net.Http": "4.0.0"
@@ -508,9 +503,6 @@
         "runtime": {
           "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll": {}
         }
-      },
-      "StyleCop.Analyzers/1.0.0-rc3": {
-        "type": "package"
       },
       "System.Collections/4.0.11-beta-23516": {
         "type": "package",
@@ -1397,11 +1389,10 @@
           "lib/net45/Microsoft.Owin.Hosting.dll": {}
         }
       },
-      "MyTested.HttpServer/1.0.0": {
+      "MyTested.HttpServer/1.0.1": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
-          "StyleCop.Analyzers": "1.0.0-rc3",
           "System.Linq": "4.0.0",
           "System.Linq.Expressions": "4.0.10",
           "System.Net.Http": "4.0.0"
@@ -1424,9 +1415,6 @@
         "runtime": {
           "lib/net40/Owin.dll": {}
         }
-      },
-      "StyleCop.Analyzers/1.0.0-rc3": {
-        "type": "package"
       },
       "System.Linq/4.0.0": {
         "type": "package",
@@ -1761,11 +1749,10 @@
           "lib/net45/Microsoft.Owin.Hosting.dll": {}
         }
       },
-      "MyTested.HttpServer/1.0.0": {
+      "MyTested.HttpServer/1.0.1": {
         "type": "project",
         "framework": "DNX,Version=v4.5.1",
         "dependencies": {
-          "StyleCop.Analyzers": "1.0.0-rc3",
           "System.Linq": "4.0.0",
           "System.Linq.Expressions": "4.0.10",
           "System.Net.Http": "4.0.0"
@@ -1788,9 +1775,6 @@
         "runtime": {
           "lib/net40/Owin.dll": {}
         }
-      },
-      "StyleCop.Analyzers/1.0.0-rc3": {
-        "type": "package"
       },
       "System.Linq/4.0.0": {
         "type": "package",
@@ -2129,11 +2113,10 @@
           "lib/DNXCore50/Microsoft.Win32.Registry.dll": {}
         }
       },
-      "MyTested.HttpServer/1.0.0": {
+      "MyTested.HttpServer/1.0.1": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
-          "StyleCop.Analyzers": "1.0.0-rc3",
           "System.Linq": "4.0.0",
           "System.Linq.Expressions": "4.0.10",
           "System.Net.Http": "4.0.0"
@@ -2347,9 +2330,6 @@
         "runtime": {
           "runtimes/win7/lib/DNXCore50/System.Threading.dll": {}
         }
-      },
-      "StyleCop.Analyzers/1.0.0-rc3": {
-        "type": "package"
       },
       "System.Collections/4.0.11-beta-23516": {
         "type": "package",
@@ -3387,11 +3367,10 @@
           "lib/DNXCore50/Microsoft.Win32.Registry.dll": {}
         }
       },
-      "MyTested.HttpServer/1.0.0": {
+      "MyTested.HttpServer/1.0.1": {
         "type": "project",
         "framework": "DNXCore,Version=v5.0",
         "dependencies": {
-          "StyleCop.Analyzers": "1.0.0-rc3",
           "System.Linq": "4.0.0",
           "System.Linq.Expressions": "4.0.10",
           "System.Net.Http": "4.0.0"
@@ -3605,9 +3584,6 @@
         "runtime": {
           "runtimes/win7/lib/DNXCore50/System.Threading.dll": {}
         }
-      },
-      "StyleCop.Analyzers/1.0.0-rc3": {
-        "type": "package"
       },
       "System.Collections/4.0.11-beta-23516": {
         "type": "package",
@@ -4487,7 +4463,7 @@
     }
   },
   "libraries": {
-    "MyTested.HttpServer/1.0.0": {
+    "MyTested.HttpServer/1.0.1": {
       "type": "project",
       "path": "../../src/MyTested.HttpServer/project.json"
     },
@@ -4900,20 +4876,6 @@
         "runtimes/win7/lib/DNXCore50/System.Threading.dll",
         "runtimes/win7/lib/netcore50/System.Threading.dll",
         "runtimes/win8-aot/lib/netcore50/System.Threading.dll"
-      ]
-    },
-    "StyleCop.Analyzers/1.0.0-rc3": {
-      "type": "package",
-      "sha512": "Dm7BSsASylKifcKS7GJAT8wON7yCjCajaLqXGIBshudW6AXWWNvXK72wVlYRuEdHVq+vDQRKd3TOyzsCbNC67g==",
-      "files": [
-        "analyzers/dotnet/cs/Newtonsoft.Json.dll",
-        "analyzers/dotnet/cs/StyleCop.Analyzers.CodeFixes.dll",
-        "analyzers/dotnet/cs/StyleCop.Analyzers.dll",
-        "StyleCop.Analyzers.1.0.0-rc3.nupkg",
-        "StyleCop.Analyzers.1.0.0-rc3.nupkg.sha512",
-        "StyleCop.Analyzers.nuspec",
-        "tools/install.ps1",
-        "tools/uninstall.ps1"
       ]
     },
     "System.Collections/4.0.11-beta-23516": {
@@ -7362,8 +7324,7 @@
     "": [
       "xunit >= 2.1.0",
       "xunit.runner.dnx >= 2.1.0-rc1-build204",
-      "StyleCop.Analyzers >= 1.0.0-rc3",
-      "MyTested.HttpServer >= 1.0.0"
+      "MyTested.HttpServer >= 1.0.1"
     ],
     "DNX,Version=v4.5.1": [
       "Microsoft.Owin.Host.HttpListener >= 3.0.1",
