@@ -1,0 +1,20 @@
+﻿{
+  "version": "1.0.0",
+  "description": "MyTested.HttpServer Class Library",
+  "authors": [ "Ivaylo Kenov" ],
+  "tags": [ "fluent", "testing", "framework", "unit tests", "test", "http", "server", "remote" ],
+  "projectUrl": "https://github.com/ivaylokenov/MyTested.HttpServer",
+  "licenseUrl": "https://github.com/ivaylokenov/MyTested.HttpServer/blob/master/LICENSE",
+
+  "dependencies": {
+    "StyleCop.Analyzers": "1.0.0-rc3",
+    "System.Net.Http": "4.0.0",
+    "System.Linq": "4.0.0",
+    "System.Linq.Expressions": "4.0.10"
+  },
+
+  "frameworks": {
+    "dnx451": { },
+    "dnxcore50": { }
+  }
+}

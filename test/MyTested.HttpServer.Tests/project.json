@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "description": "MyTested.HttpServer.Tests Class Library",
+  "authors": [ "Ivaylo Kenov" ],
+  "tags": [ "fluent", "testing", "framework", "unit tests", "test", "http", "server", "remote" ],
+  "projectUrl": "https://github.com/ivaylokenov/MyTested.HttpServer",
+  "licenseUrl": "https://github.com/ivaylokenov/MyTested.HttpServer/blob/master/LICENSE",
+
+  "dependencies": {
+    "xunit": "2.1.0",
+    "xunit.runner.dnx": "2.1.0-rc1-build204",
+    "StyleCop.Analyzers": "1.0.0-rc3",
+    "MyTested.HttpServer": "1.0.0"
+  },
+
+  "commands": {
+    "test": "xunit.runner.dnx"
+  },
+
+  "frameworks": {
+    "dnx451": {
+      "dependencies": {
+        "Microsoft.Owin.Host.HttpListener": "3.0.1",
+        "Microsoft.Owin.Hosting": "3.0.1"
+      }
+    },
+    "dnxcore50": { }
+  }
+}
