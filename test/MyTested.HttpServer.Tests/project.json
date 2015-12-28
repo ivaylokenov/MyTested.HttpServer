@@ -18,7 +18,12 @@
   },
 
   "frameworks": {
-    "dnx451": { },
+    "dnx451": {
+      "dependencies": {
+        "Microsoft.Owin.Host.HttpListener": "3.0.1",
+        "Microsoft.Owin.Hosting": "3.0.1"
+      }
+    },
     "dnxcore50": { }
   }
 }

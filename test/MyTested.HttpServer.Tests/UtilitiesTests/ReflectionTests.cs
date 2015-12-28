@@ -93,14 +93,14 @@
         public void ToFriendlyTypeNameShouldReturnProperNameWhenTypeIsGenericWithoutArguments()
         {
             var name = typeof(List<>).ToFriendlyTypeName();
-            Assert.Equal("List<T>", name);
+            Assert.Equal("List<>", name);
         }
 
         [Fact]
         public void ToFriendlyTypeNameShouldReturnProperNameWhenTypeIsGenericWithoutMoreThanOneArguments()
         {
             var name = typeof(Dictionary<,>).ToFriendlyTypeName();
-            Assert.Equal("Dictionary<TKey, TValue>", name);
+            Assert.Equal("Dictionary<>", name);
         }
 
         [Fact]

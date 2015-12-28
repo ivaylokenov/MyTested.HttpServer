@@ -96,7 +96,7 @@
         /// Tests for a particular HTTP response message.
         /// </summary>
         /// <returns>HTTP response message test builder.</returns>
-        public IHttpHandlerResponseMessageTestBuilder ShouldReturnHttpResponseMessage()
+        public IHttpResponseMessageTestBuilder ShouldReturnHttpResponseMessage()
         {
             var serverHandler = new ServerHttpMessageHandler(this.client, this.disposeClient);
             using (var invoker = new HttpMessageInvoker(serverHandler, true))
@@ -111,9 +111,31 @@
                 {
                     this.client.Dispose();
                 }
-
-                return new HttpHandlerResponseMessageTestBuilder(serverHandler, httpResponseMessage, stopwatch.Elapsed);
+                
+                return new HttpResponseMessageTestBuilder(
+                    serverHandler,
+                    httpResponseMessage,
+                    this.httpRequestMessage.RequestUri,
+                    stopwatch.Elapsed);
             }
+        }
+
+        /// <summary>
+        /// Gets the HTTP request message used in the testing.
+        /// </summary>
+        /// <returns>Instance of HttpRequestMessage.</returns>
+        public HttpRequestMessage AndProvideTheHttpRequestMessage()
+        {
+            return this.httpRequestMessage;
+        }
+
+        /// <summary>
+        /// Gets the HTTP client used in the testing.
+        /// </summary>
+        /// <returns>Instance of HttpClient.</returns>
+        public HttpClient AndProvideTheHttpClient()
+        {
+            return this.client;
         }
     }
 }
