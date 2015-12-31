@@ -1,13 +1,15 @@
 ﻿{
-  "version": "1.0.0",
-  "description": "MyTested.HttpServer Class Library",
+  "version": "1.0.1",
+  "title": "MyTested.HttpServer",
+  "copyright": "2015 Ivaylo Kenov",
+  "description": "MyTested.HttpServer is unit testing library providing easy fluent interface to test remote HTTP servers. See the project repository and documentation for more information and available features.",
+  "summary": "Fluent testing framework for remote HTTP servers.",
   "authors": [ "Ivaylo Kenov" ],
   "tags": [ "fluent", "testing", "framework", "unit tests", "test", "http", "server", "remote" ],
   "projectUrl": "https://github.com/ivaylokenov/MyTested.HttpServer",
   "licenseUrl": "https://github.com/ivaylokenov/MyTested.HttpServer/blob/master/LICENSE",
 
   "dependencies": {
-    "StyleCop.Analyzers": "1.0.0-rc3",
     "System.Net.Http": "4.0.0",
     "System.Linq": "4.0.0",
     "System.Linq.Expressions": "4.0.10"

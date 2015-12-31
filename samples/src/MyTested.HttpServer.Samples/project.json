@@ -1,0 +1,21 @@
+﻿{
+  "version": "1.0.0",
+  "description": "MyTested.HttpServer Samples",
+  "authors": [ "Ivaylo Kenov" ],
+
+  "dependencies": {
+    "xunit": "2.1.0",
+    "xunit.runner.dnx": "2.1.0-rc1-build204",
+    "MyTested.HttpServer": "1.0.1",
+    "AngleSharp": "0.9.4",
+    "Newtonsoft.Json": "8.0.1"
+  },
+
+  "commands": {
+    "test": "xunit.runner.dnx"
+  },
+
+  "frameworks": {
+    "dnxcore50": { }
+  }
+}
