@@ -6,13 +6,13 @@
     using System.Net.Http;
     using Xunit;
 
-    public class AngleSharpTests
+    public class HtmlTests
     {
         private const string BaseAddress = "http://mytestedasp.net";
 
         IServerBuilder httpServer;
 
-        public AngleSharpTests()
+        public HtmlTests()
         {
             httpServer = MyHttpServer.WorkingRemotely(BaseAddress);
         }
