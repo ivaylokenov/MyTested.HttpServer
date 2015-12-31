@@ -351,7 +351,7 @@ httpServer
 
 [To top](#table-of-contents)
 
-### Helper classes
+### Helper classes and methods
 
 The library gives you helper classes for common magic strings:
 
@@ -369,15 +369,10 @@ httpServer
 // HttpContentHeader class contains common HTTP content header names
 httpServer
 	.WithHttpRequestMessage(request => request
-		.WithContentHeader(HttpContentHeader.ContentType, MediaType.ApplicationJson)) // represents "ContentType" HTTP header
+		.WithContentHeader(HttpContentHeader.ContentType, MediaType.ApplicationJson)) // represents "Content-Type" HTTP header
 ```
 
-[To top](#table-of-contents)
-
-### AndProvide... methods
-
-You can get different test specific objects used in the test case where applicable by using AndProvide... methods.
-Useful for additional custom test assertions:
+Additionally, you can get different test specific objects used in the test case where applicable by using AndProvide... methods. Useful for additional custom test assertions:
 
 ```c#
 // get the HTTP client used in the testing
