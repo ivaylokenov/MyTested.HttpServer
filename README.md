@@ -20,7 +20,7 @@ After the downloading is complete, just add `using MyTested.HttpServer;` and you
 For other interesting packages check out:
 
  - [MyTested.WebApi](https://github.com/ivaylokenov/MyTested.WebApi) - fluent testing framework for ASP.NET Web API 2
- - [AspNet.Mvc.TypedRouting](https://github.com/ivaylokenov/AspNet.Mvc.TypedRouting) - typed routing and link generation for ASP.NET MVC 6
+ - [AspNet.Mvc.TypedRouting](https://github.com/ivaylokenov/AspNet.Mvc.TypedRouting) - typed routing and link generation for ASP.NET Core MVC
  - [ASP.NET MVC 5 Lambda Expression Helpers](https://github.com/ivaylokenov/ASP.NET-MVC-Lambda-Expression-Helpers) - typed expression based link generation for ASP.NET MVC 5
 	
 ## How to use
@@ -66,7 +66,7 @@ Basically, MyTested.HttpServer throws an unhandled exception if the assertion do
 
 ## License
 
-Code by Ivaylo Kenov. Copyright 2015 Ivaylo Kenov.
+Code by Ivaylo Kenov. Copyright 2015-2016 Ivaylo Kenov.
 
 This package has MIT license. Refer to the [LICENSE](https://github.com/ivaylokenov/MyTested.HttpServer/blob/master/LICENSE) for detailed information.
  
