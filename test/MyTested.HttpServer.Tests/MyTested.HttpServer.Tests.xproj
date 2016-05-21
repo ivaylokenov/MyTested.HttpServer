@@ -9,7 +9,7 @@
     <ProjectGuid>a57ee531-b2b6-45ee-9516-c785d848c3dd</ProjectGuid>
     <RootNamespace>MyTested.HttpServer.Tests</RootNamespace>
     <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">..\MyTested.HttpServer\artifacts\obj\$(MSBuildProjectName)</BaseIntermediateOutputPath>
-    <OutputPath Condition="'$(OutputPath)'=='' ">..\MyTested.HttpServer\artifacts\bin\$(MSBuildProjectName)\</OutputPath>
+    <OutputPath Condition="'$(OutputPath)'=='' ">.\bin\</OutputPath>
   </PropertyGroup>
   <PropertyGroup>
     <SchemaVersion>2.0</SchemaVersion>
