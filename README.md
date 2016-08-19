@@ -3,6 +3,8 @@
 
 MyTested.HttpServer is unit testing library providing easy fluent interface to test remote HTTP servers. It is testing framework agnostic, so you can combine it with the testing library of your choice (e.g. NUnit, xUnit, etc.). MyTested.HttpServer can be easily used with frameworks like [AngleSharp](https://github.com/AngleSharp/AngleSharp) or [Json.NET](https://github.com/JamesNK/Newtonsoft.Json) in order to create HTML or JSON test assertions over a remote (or localhost) web server.
 
+[![Build status](https://ci.appveyor.com/api/projects/status/2mi5oonpmuxgwsob?svg=true)](https://ci.appveyor.com/project/ivaylokenov/mytested-httpserver) [![NuGet Version](http://img.shields.io/nuget/v/MyTested.HttpServer.svg?style=flat)](https://www.nuget.org/packages/MyTested.HttpServer/) 
+
 ## Documentation
 
 Please see the [documentation](https://github.com/ivaylokenov/MyTested.HttpServer/tree/master/documentation) for full list of available features. Everything listed there is fully covered by unit tests.

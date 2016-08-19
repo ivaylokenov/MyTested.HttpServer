@@ -1,32 +1,15 @@
 {
-  "version": "1.1.0",
-  "description": "MyTested.HttpServer.Tests Class Library",
-  "authors": [ "Ivaylo Kenov" ],
-
-  "packOptions": {
-    "tags": [ "fluent", "testing", "framework", "unit tests", "test", "http", "server", "remote" ],
-    "projectUrl": "https://github.com/ivaylokenov/MyTested.HttpServer",
-    "licenseUrl": "https://github.com/ivaylokenov/MyTested.HttpServer/blob/master/LICENSE"
-  },
+  "testRunner": "xunit",
 
   "dependencies": {
-    "dotnet-test-xunit": "1.0.0-*",
-    "xunit": "2.1.0",
-    "MyTested.HttpServer": "1.1.0"
+    "dotnet-test-xunit": "2.2.0-*",
+    "xunit": "2.2.0-*",
+    "MyTested.HttpServer": "1.2.1-*"
   },
-
-  "buildOptions": {
-    "warningsAsErrors": true
-  },
-
-  "testRunner": "xunit",
 
   "frameworks": {
     "netcoreapp1.0": {
-      "imports": [
-        "dnxcore50",
-        "portable-net451+win8"
-      ],
+      "imports": "dotnet5.4",
       "dependencies": {
         "Microsoft.NETCore.App": {
           "version": "1.0.0-*",
@@ -34,6 +17,6 @@
         }
       }
     },
-    "net451": { }
+    "net451": {}
   }
 }

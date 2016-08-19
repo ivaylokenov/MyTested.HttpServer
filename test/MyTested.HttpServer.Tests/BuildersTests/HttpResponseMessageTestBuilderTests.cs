@@ -13,7 +13,7 @@
 
     public class HttpResponseMessageTestBuilderTests : IDisposable
     {
-        private const string BaseAddress = "http://mytestedasp.net/";
+        private const string BaseAddress = "https://mytestedasp.net/";
 
 #if DNX451
         private const string BaseLocalAddress = "http://localhost:9876";
@@ -55,7 +55,7 @@
                     .ContainingHeader("AnotherHeader");
             });
 
-            Assert.Equal("When testing 'http://mytestedasp.net/' expected HTTP response message result headers to contain AnotherHeader, but none was found.", exception.Message);
+            Assert.Equal("When testing 'https://mytestedasp.net/' expected HTTP response message result headers to contain AnotherHeader, but none was found.", exception.Message);
         }
 
         [Fact]
@@ -80,7 +80,7 @@
                     .ContainingHeader("Server", "AnotherHeaderValue");
             });
 
-            Assert.Equal("When testing 'http://mytestedasp.net/' expected HTTP response message result headers to contain Server with AnotherHeaderValue value, but none was found.", exception.Message);
+            Assert.Equal("When testing 'https://mytestedasp.net/' expected HTTP response message result headers to contain Server with AnotherHeaderValue value, but none was found.", exception.Message);
         }
 
         [Fact]
@@ -105,7 +105,7 @@
                     .ContainingHeader("Server", new[] { "AnotherHeaderValue" });
             });
 
-            Assert.Equal("When testing 'http://mytestedasp.net/' expected HTTP response message result headers to have Server with AnotherHeaderValue value, but none was found.", exception.Message);
+            Assert.Equal("When testing 'https://mytestedasp.net/' expected HTTP response message result headers to have Server with AnotherHeaderValue value, but none was found.", exception.Message);
         }
 
         [Fact]
@@ -120,7 +120,7 @@
                     .ContainingHeader("Server", new[] { "TestHeaderValue", "AnotherHeaderValue" });
             });
 
-            Assert.Equal("When testing 'http://mytestedasp.net/' expected HTTP response message result headers to contain Server with 2 values, but instead found 1.", exception.Message);
+            Assert.Equal("When testing 'https://mytestedasp.net/' expected HTTP response message result headers to contain Server with 2 values, but instead found 1.", exception.Message);
 
         }
         
@@ -146,7 +146,7 @@
                     .ContainingContentHeader("AnotherHeader");
             });
 
-            Assert.Equal("When testing 'http://mytestedasp.net/' expected HTTP response message result content headers to contain AnotherHeader, but none was found.", exception.Message);
+            Assert.Equal("When testing 'https://mytestedasp.net/' expected HTTP response message result content headers to contain AnotherHeader, but none was found.", exception.Message);
         }
 
         [Fact]
@@ -171,7 +171,7 @@
                     .ContainingContentHeader("Content-Type", "AnotherHeaderValue");
             });
 
-            Assert.Equal("When testing 'http://mytestedasp.net/' expected HTTP response message result content headers to contain Content-Type with AnotherHeaderValue value, but none was found.", exception.Message);
+            Assert.Equal("When testing 'https://mytestedasp.net/' expected HTTP response message result content headers to contain Content-Type with AnotherHeaderValue value, but none was found.", exception.Message);
         }
 
         [Fact]
@@ -196,7 +196,7 @@
                     .ContainingContentHeader("Content-Type", new[] { "AnotherHeaderValue" });
             });
 
-            Assert.Equal("When testing 'http://mytestedasp.net/' expected HTTP response message result content headers to have Content-Type with AnotherHeaderValue value, but none was found.", exception.Message);
+            Assert.Equal("When testing 'https://mytestedasp.net/' expected HTTP response message result content headers to have Content-Type with AnotherHeaderValue value, but none was found.", exception.Message);
         }
 
         [Fact]
@@ -211,7 +211,7 @@
                     .ContainingContentHeader("Content-Type", new[] { "TestHeaderValue", "AnotherHeaderValue" });
             });
 
-            Assert.Equal("When testing 'http://mytestedasp.net/' expected HTTP response message result content headers to contain Content-Type with 2 values, but instead found 1.", exception.Message);
+            Assert.Equal("When testing 'https://mytestedasp.net/' expected HTTP response message result content headers to contain Content-Type with 2 values, but instead found 1.", exception.Message);
         }
         
         [Fact]
@@ -237,7 +237,7 @@
                     .WithStatusCode(HttpStatusCode.BadRequest);
             });
 
-            Assert.Equal("When testing 'http://mytestedasp.net/' expected HTTP response message result status code to be 400 (BadRequest), but instead received 200 (OK).", exception.Message);
+            Assert.Equal("When testing 'https://mytestedasp.net/' expected HTTP response message result status code to be 400 (BadRequest), but instead received 200 (OK).", exception.Message);
         }
 
         [Fact]
@@ -282,7 +282,7 @@
                     .WithVersion("1.0");
             });
 
-            Assert.Equal("When testing 'http://mytestedasp.net/' expected HTTP response message result version to be 1.0, but instead received 1.1.", exception.Message);
+            Assert.Equal("When testing 'https://mytestedasp.net/' expected HTTP response message result version to be 1.0, but instead received 1.1.", exception.Message);
         }
 
         [Fact]
@@ -307,7 +307,7 @@
                     .WithReasonPhrase("Invalid reason phrase");
             });
 
-            Assert.Equal("When testing 'http://mytestedasp.net/' expected HTTP response message result reason phrase to be 'Invalid reason phrase', but instead received 'OK'.", exception.Message);
+            Assert.Equal("When testing 'https://mytestedasp.net/' expected HTTP response message result reason phrase to be 'Invalid reason phrase', but instead received 'OK'.", exception.Message);
         }
 
         [Fact]
@@ -420,7 +420,7 @@
                         responseTime => responseTime.TotalMilliseconds < 0);
             });
 
-            Assert.Equal("When testing 'http://mytestedasp.net/' expected HTTP response message result response time to pass the given condition, but it failed.", exception.Message);
+            Assert.Equal("When testing 'https://mytestedasp.net/' expected HTTP response message result response time to pass the given condition, but it failed.", exception.Message);
         }
 
 #if DNX451
