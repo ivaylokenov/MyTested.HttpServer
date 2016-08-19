@@ -8,7 +8,7 @@
 
     public class HtmlTests
     {
-        private const string BaseAddress = "http://mytestedasp.net";
+        private const string BaseAddress = "https://mytestedasp.net";
 
         IServerBuilder httpServer;
 
@@ -48,7 +48,7 @@
                     var document = parser.Parse(html);
 
                     var element = document
-                        .QuerySelectorAll("form#contact")
+                        .QuerySelectorAll("form#contact-form")
                         .FirstOrDefault();
 
                     Assert.NotNull(element);

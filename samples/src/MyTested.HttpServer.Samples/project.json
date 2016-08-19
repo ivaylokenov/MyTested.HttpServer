@@ -1,21 +1,24 @@
 ﻿{
-  "version": "1.0.0",
-  "description": "MyTested.HttpServer Samples",
-  "authors": [ "Ivaylo Kenov" ],
+  "testRunner": "xunit",
 
   "dependencies": {
-    "xunit": "2.1.0",
-    "xunit.runner.dnx": "2.1.0-rc1-build204",
-    "MyTested.HttpServer": "1.0.1",
-    "AngleSharp": "0.9.4",
-    "Newtonsoft.Json": "8.0.1"
-  },
-
-  "commands": {
-    "test": "xunit.runner.dnx"
+    "dotnet-test-xunit": "2.2.0-*",
+    "xunit": "2.2.0-*",
+    "MyTested.HttpServer": "1.2.1-*",
+    "AngleSharp": "0.9.7",
+    "Newtonsoft.Json": "9.0.1"
   },
 
   "frameworks": {
-    "dnxcore50": { }
+    "netcoreapp1.0": {
+      "imports": "dotnet5.4",
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "version": "1.0.0-*",
+          "type": "platform"
+        }
+      }
+    },
+    "net451": {}
   }
 }

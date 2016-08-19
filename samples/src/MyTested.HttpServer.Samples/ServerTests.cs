@@ -7,7 +7,7 @@
 
     public class ServerTests
     {
-        private const string BaseAddress = "http://mytestedasp.net";
+        private const string BaseAddress = "https://mytestedasp.net";
 
         IServerBuilder httpServer;
 
