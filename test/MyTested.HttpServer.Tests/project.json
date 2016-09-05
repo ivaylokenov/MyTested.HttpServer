@@ -4,7 +4,7 @@
   "dependencies": {
     "dotnet-test-xunit": "2.2.0-*",
     "xunit": "2.2.0-*",
-    "MyTested.HttpServer": "1.2.1-*"
+    "MyTested.HttpServer": "1.2.2-*"
   },
 
   "frameworks": {

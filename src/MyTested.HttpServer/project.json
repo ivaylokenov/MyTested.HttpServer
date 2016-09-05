@@ -1,5 +1,5 @@
 ﻿{
-  "version": "1.2.1",
+  "version": "1.2.2",
   "title": "MyTested.HttpServer",
   "copyright": "2015-2016 Ivaylo Kenov",
   "description": "MyTested.HttpServer is a unit testing library providing easy fluent interface to test remote HTTP servers. See the project repository and documentation for more information and available features.",

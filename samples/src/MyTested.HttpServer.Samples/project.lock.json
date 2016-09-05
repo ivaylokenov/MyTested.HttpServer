@@ -469,7 +469,7 @@
           }
         }
       },
-      "MyTested.HttpServer/1.2.1": {
+      "MyTested.HttpServer/1.2.2": {
         "type": "package",
         "dependencies": {
           "NETStandard.Library": "1.6.0"
@@ -2667,7 +2667,7 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "MyTested.HttpServer/1.2.1": {
+      "MyTested.HttpServer/1.2.2": {
         "type": "package",
         "dependencies": {
           "System.Net.Http": "4.0.0"
@@ -3404,12 +3404,12 @@
         "runtimes/win/lib/netstandard1.3/Microsoft.Win32.Registry.dll"
       ]
     },
-    "MyTested.HttpServer/1.2.1": {
-      "sha512": "Cip5A3TLpskGaXHQ9QUSUQMakl+OE2ttWsnbjAnEAiIhZFlVU/ypwNITmELbiEsn8VSAPMbt+v3T/lKNEJf5FQ==",
+    "MyTested.HttpServer/1.2.2": {
+      "sha512": "CYdPauEHWw4Z/TAyk3ckn4gjwX3D1CznfiR3s0G0khliEn9ptmIZ3nKbujYkyyNCXDryJFHYOn7VpyUBvI1b1w==",
       "type": "package",
-      "path": "MyTested.HttpServer/1.2.1",
+      "path": "MyTested.HttpServer/1.2.2",
       "files": [
-        "MyTested.HttpServer.1.2.1.nupkg.sha512",
+        "MyTested.HttpServer.1.2.2.nupkg.sha512",
         "MyTested.HttpServer.nuspec",
         "lib/net451/MyTested.HttpServer.dll",
         "lib/netstandard1.6/MyTested.HttpServer.dll"
@@ -7982,7 +7982,7 @@
   "projectFileDependencyGroups": {
     "": [
       "AngleSharp >= 0.9.7",
-      "MyTested.HttpServer >= 1.2.1-*",
+      "MyTested.HttpServer >= 1.2.2",
       "Newtonsoft.Json >= 9.0.1",
       "dotnet-test-xunit >= 2.2.0-*",
       "xunit >= 2.2.0-*"
