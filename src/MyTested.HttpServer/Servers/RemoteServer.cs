@@ -30,7 +30,8 @@
         /// <returns>HttpClient instance.</returns>
         public static HttpClient CreateNewClient(string baseAddress)
         {
-            return new HttpClient
+            var handler = new HttpClientHandler { UseCookies = false };
+            return new HttpClient(handler)
             {
                 BaseAddress = new Uri(baseAddress)
             };

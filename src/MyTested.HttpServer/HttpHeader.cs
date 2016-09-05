@@ -46,6 +46,11 @@
         public const string CacheControl = "Cache-Control";
 
         /// <summary>
+        /// Represents Cookie header name.
+        /// </summary>
+        public const string Cookie = "Cookie";
+
+        /// <summary>
         /// Represents Connection header name.
         /// </summary>
         public const string Connection = "Connection";
@@ -149,6 +154,11 @@
         /// Represents Server header name.
         /// </summary>
         public const string Server = "Server";
+        
+        /// <summary>
+        /// Represents SetCookie header name.
+        /// </summary>
+        public const string SetCookie = "Set-Cookie";
 
         /// <summary>
         /// Represents TE header name.

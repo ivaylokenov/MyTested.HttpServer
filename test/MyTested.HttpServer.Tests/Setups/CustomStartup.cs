@@ -1,9 +1,9 @@
-﻿#if DNX451
+﻿#if NET451
 
 namespace MyTested.HttpServer.Tests.Setups
 {
     using Owin;
-    using System;
+    using System.Linq;
 
     public class CustomStartup
     {
@@ -15,6 +15,12 @@ namespace MyTested.HttpServer.Tests.Setups
                 {
                     context.Response.StatusCode = 200;
                     return context.Response.WriteAsync("OK!");
+                }
+
+                if (context.Request.Method == "GET" && context.Request.Uri.OriginalString.EndsWith("/cookies"))
+                {
+                    context.Response.StatusCode = 200;
+                    return context.Response.WriteAsync(string.Join("!", context.Request.Cookies.Select(c => $"{c.Key}+{c.Value}")));
                 }
 
                 context.Response.StatusCode = 404;

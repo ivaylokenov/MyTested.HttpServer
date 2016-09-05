@@ -6,7 +6,7 @@
     using Exceptions;
     using Xunit;
 
-#if DNX451
+#if NET451
     using Microsoft.Owin.Hosting;
     using Setups;
 #endif
@@ -15,7 +15,7 @@
     {
         private const string BaseAddress = "https://mytestedasp.net/";
 
-#if DNX451
+#if NET451
         private const string BaseLocalAddress = "http://localhost:9876";
 
         private IDisposable localServer;
@@ -28,7 +28,7 @@
 
         public void Dispose()
         {
-#if DNX451
+#if NET451
             localServer.Dispose();
 #endif
         }
@@ -423,7 +423,7 @@
             Assert.Equal("When testing 'https://mytestedasp.net/' expected HTTP response message result response time to pass the given condition, but it failed.", exception.Message);
         }
 
-#if DNX451
+#if NET451
         [Fact]
         public void WithSuccessStatusCodeShouldThrowExceptionWithInvalidStatusCode()
         {
@@ -500,6 +500,19 @@
             });
 
             Assert.Equal("When testing 'http://localhost:9876/' expected HTTP response message result content to pass the given condition, but it failed.", exception.Message);
+        }
+
+        [Fact]
+        public void WithHeaderCookiesShouldSetCorrectCookieValue()
+        {
+            MyHttpServer
+                .WorkingRemotely(BaseLocalAddress)
+                .WithHttpRequestMessage(req => req
+                    .WithMethod(HttpMethod.Get)
+                    .WithRequestUri("/cookies")
+                    .WithHeader(HttpHeader.Cookie, "cookiename=cookievalue;anothercookie=anothervalue"))
+                .ShouldReturnHttpResponseMessage()
+                .WithContent("cookiename+cookievalue!anothercookie+anothervalue");
         }
 #endif
     }

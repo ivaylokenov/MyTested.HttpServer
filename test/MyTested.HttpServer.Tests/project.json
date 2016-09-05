@@ -17,6 +17,12 @@
         }
       }
     },
-    "net451": {}
+    "net451": {
+      "dependencies": {
+        "Microsoft.Owin": "3.0.1",
+        "Microsoft.Owin.Hosting": "3.0.1",
+        "Microsoft.Owin.Host.HttpListener": "3.0.1"
+      }
+    }
   }
 }
