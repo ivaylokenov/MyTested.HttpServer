@@ -12,7 +12,10 @@
         [Fact]
         public void RemoteServerShouldWorkCorrectlyWithGlobalConfiguration()
         {
-            MyHttpServer.IsLocatedAt("http://google.com");
+            MyHttpServer.IsLocatedAt("http://google.com", clientHandler =>
+            {
+                clientHandler.AllowAutoRedirect = true;
+            });
 
             MyHttpServer
                 .WorkingRemotely()

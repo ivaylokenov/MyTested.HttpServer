@@ -3,6 +3,7 @@
     using Builders;
     using Servers;
     using System;
+    using System.Net.Http;
 
     /// <summary>
     /// Starting point of the testing framework, which provides a way to specify the remote server to be tested.
@@ -16,7 +17,18 @@
         /// <returns>Server builder.</returns>
         public static IServerBuilder IsLocatedAt(string baseAddress)
         {
-            RemoteServer.ConfigureGlobal(baseAddress);
+            return IsLocatedAt(baseAddress, null);
+        }
+
+        /// <summary>
+        /// Configures global remote server.
+        /// </summary>
+        /// <param name="baseAddress">Base address to use for the requests.</param>
+        /// <param name="httpClientHandlerSetup">Action setting the HttpClientHandler options.</param>
+        /// <returns>Server builder.</returns>
+        public static IServerBuilder IsLocatedAt(string baseAddress, Action<HttpClientHandler> httpClientHandlerSetup)
+        {
+            RemoteServer.ConfigureGlobal(baseAddress, httpClientHandlerSetup);
             return WorkingRemotely();
         }
 
@@ -41,7 +53,17 @@
         /// <returns>Server builder to set specific HTTP requests.</returns>
         public static IServerBuilder WorkingRemotely(string baseAddress)
         {
-            return new ServerTestBuilder(RemoteServer.CreateNewClient(baseAddress), disposeClient: true);
+            return WorkingRemotely(baseAddress, null);
+        }
+
+        /// <summary>
+        /// Processes HTTP request on the remote HTTP server located at the provided base address.
+        /// </summary>
+        /// <param name="baseAddress">Base address to use for the requests.</param>
+        /// <returns>Server builder to set specific HTTP requests.</returns>
+        public static IServerBuilder WorkingRemotely(string baseAddress, Action<HttpClientHandler> httpClientHandlerSetup)
+        {
+            return new ServerTestBuilder(RemoteServer.CreateNewClient(baseAddress, httpClientHandlerSetup), disposeClient: true);
         }
     }
 }

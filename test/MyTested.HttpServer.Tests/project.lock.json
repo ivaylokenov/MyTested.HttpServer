@@ -2480,7 +2480,7 @@
           "lib/netstandard1.1/xunit.runner.utility.dotnet.dll": {}
         }
       },
-      "MyTested.HttpServer/1.2.1": {
+      "MyTested.HttpServer/1.2.3": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.6",
         "dependencies": {
@@ -2931,7 +2931,7 @@
           "lib/net45/xunit.runner.utility.desktop.dll": {}
         }
       },
-      "MyTested.HttpServer/1.2.1": {
+      "MyTested.HttpServer/1.2.3": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.5.1",
         "dependencies": {
@@ -7968,7 +7968,7 @@
         "xunit.runner.utility.nuspec"
       ]
     },
-    "MyTested.HttpServer/1.2.1": {
+    "MyTested.HttpServer/1.2.3": {
       "type": "project",
       "path": "../../src/MyTested.HttpServer/project.json",
       "msbuildProject": "../../src/MyTested.HttpServer/MyTested.HttpServer.xproj"
@@ -7976,7 +7976,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "MyTested.HttpServer >= 1.2.1-*",
+      "MyTested.HttpServer >= 1.2.3-*",
       "dotnet-test-xunit >= 2.2.0-*",
       "xunit >= 2.2.0-*"
     ],

@@ -28,12 +28,20 @@
         /// </summary>
         /// <param name="baseAddress">Base address to use for the requests.</param>
         /// <returns>HttpClient instance.</returns>
-        public static HttpClient CreateNewClient(string baseAddress)
+        public static HttpClient CreateNewClient(string baseAddress, Action<HttpClientHandler> httpClientHandlerSetup = null)
         {
-            var handler = new HttpClientHandler { UseCookies = false };
+            var handler = new HttpClientHandler
+            {
+                UseCookies = false,
+                AllowAutoRedirect = false,
+            };
+
+            httpClientHandlerSetup?.Invoke(handler);
+
             return new HttpClient(handler)
             {
-                BaseAddress = new Uri(baseAddress)
+                BaseAddress = new Uri(baseAddress),
+                Timeout = TimeSpan.FromMinutes(1)
             };
         }
 
@@ -41,14 +49,14 @@
         /// Configures singleton global instance of the HTTP remote server client.
         /// </summary>
         /// <param name="baseAddress">Base address to use for the requests.</param>
-        public static void ConfigureGlobal(string baseAddress)
+        public static void ConfigureGlobal(string baseAddress, Action<HttpClientHandler> httpClientHandlerSetup = null)
         {
             if (GlobalIsConfigured)
             {
                 DisposeGlobal();
             }
 
-            GlobalClient = CreateNewClient(baseAddress);
+            GlobalClient = CreateNewClient(baseAddress, httpClientHandlerSetup);
         }
 
         /// <summary>
