@@ -26,6 +26,10 @@ MyHttpServer
 // so it is better to set it globally for all test cases
 MyHttpServer.IsLocatedAt("http://mytestedasp.net");
 
+// additionally HTTP client handler options can be specified
+MyHttpServer
+	.IsLocatedAt("http://mytestedasp.net", handler => handler.AllowAutoRedirect = false);
+
 // additionally default headers can be set and they will be sent on every request
 MyHttpServer
 	.IsLocatedAt("http://mytestedasp.net")
